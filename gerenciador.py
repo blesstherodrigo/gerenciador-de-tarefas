@@ -27,8 +27,8 @@ while True:
         if len(tarefas) == 0:
             print('Nenhuma tarefa registrada...')
         else:
-            for item_tarefa in tarefas:
-                print(item_tarefa)      # lista as tarefas registradas
+            for indice, item_tarefa in enumerate(tarefas, start=1):
+                print(indice, item_tarefa)      # lista as tarefas registradas
 
     elif opcao == 3:
         break       # sai do menu
