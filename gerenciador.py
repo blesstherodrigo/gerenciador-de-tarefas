@@ -1,11 +1,3 @@
-''''
-Criar a lista que armazenará as tarefas.
-Criar o menu com as três opções.
-Fazer o menu continuar aparecendo até o usuário escolher sair.
-Implementar a opção de adicionar tarefas.
-Implementar a opção de listar, incluindo a verificação da lista vazia.
-'''
-
 tarefas = []
 
 while True:
@@ -17,21 +9,25 @@ while True:
         '[3]Sair'
     )
 
-    opcao = int(input('> '))
+    try:
+        opcao = int(input('> '))    # try testa se converteu para um inteiro
+    except ValueError:
+        print('Formato inválido!')
+        continue    # pula as condicionais(if-else) e volta ao começo do laço(menu)
 
     if opcao == 1:
         nova_tarefa = input('Nova tarefa: ')
-        tarefas.append(nova_tarefa)     # adiciona uma nova tarefa
+        tarefas.append(nova_tarefa)     # adiciona uma nova tarefa na lista
 
     elif opcao == 2:
         if len(tarefas) == 0:
-            print('Nenhuma tarefa registrada...')
+            print('Não há tarefas...')
         else:
             for indice, item_tarefa in enumerate(tarefas, start=1):
-                print(indice, item_tarefa)      # lista as tarefas registradas
+                print(indice, item_tarefa)      # lista as tarefas registradas começando pelo 1
 
     elif opcao == 3:
-        break       # sai do menu
+        break   # sai do menu
 
     else:
-        print('Opção inválida!')
+        print(opcao, 'é inválido!')
