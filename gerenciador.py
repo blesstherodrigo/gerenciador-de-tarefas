@@ -10,14 +10,17 @@ while True:
     )
 
     try:
-        opcao = int(input('> '))    # try testa se converteu para um inteiro
+        opcao = int(input('> '))    # converte(casting) de str para int
     except ValueError:
         print('Formato inválido!')
         continue    # pula as condicionais(if-else) e volta ao começo do laço(menu)
 
     if opcao == 1:
-        nova_tarefa = input('Nova tarefa: ')
-        tarefas.append(nova_tarefa)     # adiciona uma nova tarefa na lista
+        nova_tarefa = input('Nova tarefa: ').strip()    # strip remove os espaços da frente e atrás
+        if nova_tarefa == "":
+            print("Esta tarefa está vazia!")
+        else:
+            tarefas.append(nova_tarefa)     # adiciona uma nova tarefa na lista
 
     elif opcao == 2:
         if len(tarefas) == 0:
